@@ -8,7 +8,7 @@
 |mail    |string |null: false, unique: true|
 
 ### Association
-- has_many :groups
+- has_many :groups_users
 - has_many :posts
 - has_many :groups, through: :groups_users
 
@@ -19,8 +19,8 @@
 |title   |string |null: false|
 
 ### Association
-- has_many   :groups_users
-- belongs_to :post
+- has_many :groups_users
+- has_many :posts
 - has_many :users, through: :groups_users
 
 ## groups_usersテーブル
