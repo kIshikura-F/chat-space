@@ -10,6 +10,7 @@
 ### Association
 - has_many :groups
 - has_many :posts
+- has_many :users, through: :groups_users
 
 ## groupsテーブル
 
@@ -18,9 +19,9 @@
 |title   |string |null: false|
 
 ### Association
-- has_many   :users
+- has_many   :groups_users
 - belongs_to :post
-- ha_many through :groups_users
+- has_many :users, through: :groups_users
 
 ## groups_usersテーブル
 
