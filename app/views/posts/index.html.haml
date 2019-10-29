@@ -1,0 +1,63 @@
+.alert
+  グループを作成しました
+.main
+  .side-menu
+    .side-menu__hedder
+      .side-menu__hedder__user
+        %p.side-menu__hedder__user__name
+          test user
+        .side-menu__hedder___user___icon
+          =link_to "https://chat-space-sample.herokuapp.com/users/1495/edit", class: "side-hedder___user___icon" do
+            = fa_icon 'cog'
+        .side-menu__hedder___user___icon
+          =link_to "https://chat-space-sample.herokuapp.com/groups/new", class: "side-hedder___user___icon" do
+            = fa_icon 'edit'
+
+    .groups
+      .group
+        .title
+          sample
+        .new-message
+          good bye world
+      .group
+        .title
+          example
+        .new-message
+          まだメッセージがありません
+
+  .chat
+    .chat-hedder
+      .chat-hedder__edit
+        =link_to "https://chat-space-sample.herokuapp.com/groups/3443/edit", class: "side-hedder___user___icon" do
+          Edit
+      .chat-hedder__title
+        test-group
+      .chat-hedder__member
+        Menber : seo neko
+    
+    .chat-messages
+      .chat-message__user
+        %p.chat-message__user__name
+          seo
+        %p.chat-message__user__date
+          2016/09/21 00:00:00
+      %a.chat-message__text
+        hello world!
+      .chat-message__user
+        %p.chat-message__user__name
+          neko
+        %p.chat-message__user__date
+          2016/09/22 00:00:00
+      %a.chat-message__text
+        good bye world!
+    
+    .chat-form
+      .chat-form__input 
+        .chat-form__input__text
+          type a message
+          .chat-form__input__text__icon 
+            = label :image, "押したら画像選択", class: ".chat-form__input__text__icon" do
+              = fa_icon 'image'
+            
+        .chat-form__input__send
+          Send
