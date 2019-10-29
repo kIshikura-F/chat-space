@@ -14,21 +14,21 @@
     .side-menu {
       width: 300px;
       float: left;
-      .side-menu__hedder {
+      &__hedder {
         background-color: #253141;
         height: 100px;
         padding: 0 20px;
         display: flex;
         align-items: center;
-        .side-menu__hedder__user {
+        &__user {
           width: 100%;
-          .side-menu__hedder__user__name {
+          &__name {
             color: #ffffff;
             font-weight: bold;
             font-size: 16px;
             display: inline-block;
           }
-          .side-menu__hedder___user___icon {
+          &__icon {
             float: right;
             color: #ffffff;
             margin-left: 2px;
