@@ -30,8 +30,10 @@
           }
           &__icon {
             float: right;
-            color: #ffffff;
             margin-left: 2px;
+            &__link {
+              color: #ffffff;
+            }
           }
         }
       }
@@ -74,15 +76,17 @@
         display: block;
         clear: both;
       }
-      &__edit{
+      &__edit {
         height: 40px;
         line-height: 40px;
         margin-top: 28px;
         padding: 0 20px;
-        color: #38aef0;
-        text-decoration: none;
         border: solid 1px #38aef0;
         float: right;
+        &__link {
+          color: #38aef0;
+          text-decoration: none;
+        }
       }
     }
     .chat-messages {

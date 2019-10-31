@@ -1,8 +1,6 @@
 @import "posts";
 @import "./reset";
 @import "font-awesome";
-@import "modules/user";
-@import "user.scss";
-@import "shared/_links.html.haml";
-@import "sessions/new.html.haml";
-@import "registrations/new.html.haml";
+@import "./user";
+@import "colors";
+@import "flash";
