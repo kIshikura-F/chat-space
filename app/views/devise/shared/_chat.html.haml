@@ -1,36 +1,21 @@
 .chat
   .chat-hedder
     .chat-hedder__edit
-      =link_to "", class: "chat-hedder__edit__link" do
+      =link_to edit_group_path(@group), class: "chat-hedder__edit__link" do
         Edit
     .chat-hedder__title
-      test-group
+      
     .chat-hedder__member
       Menber : seo neko
     
   .chat-messages
-    .chat-message__user
-      %p.chat-message__user__name
-        seo
-      %p.chat-message__user__date
-        2016/09/21 00:00:00
-    %a.chat-message__text
-      hello world!
-    .chat-message__user
-      %p.chat-message__user__name
-        neko
-      %p.chat-message__user__date
-        2016/09/22 00:00:00
-    %a.chat-message__text
-      good bye world!
+    = render @posts
     
   .chat-form
-    .chat-form__input 
-      .chat-form__input__text
-        type a message
-        .chat-form__input__text__icon 
-          = label :image, "押したら画像選択", class: ".chat-form__input__text__icon" do
-            = fa_icon 'image'
-          
-      .chat-form__input__send
-        Send
+    = form_for [@group, @post] do |f|
+      = f.text_field :content, class: "input-box", placeholder: 'type a message'
+      .input-icon
+        = f.label :image, class: "image" do
+          = fa_icon 'image', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'send'

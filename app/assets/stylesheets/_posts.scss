@@ -121,38 +121,37 @@
       background-color: rgb(182, 180, 180);
       height: 50px;
       padding: 20px 40px;
-      &__input {
+      .new_post {
         display: flex;
-        &__text {
-          background-color: #ffffff;
-          height: 50px;
+        position: relative;
+        .input-box {
           width: 100%;
           padding: 0 40px 0 10px;
           color: #434a54;
-          line-height: 50px;
-          position: relative;
-          &__icon {
+          border-style: none;
+        }
+        .input-icon {
+          position: absolute;
+          top: 12px;
+          right: 130px;
+          .image {
             cursor: pointer;
-            font-size: 20px;
-            position: absolute;
-            top: 0;
-            right: 10px;
-          }
-          &__icon-default {
-            display: none;
+            .hidden {
+              display: none;
+            }
+          }        
         }
       }
-        &__send {
-          background-color: #38AEF0;
-          height: 50px;
-          width: 40px;
-          padding: 0 30px;
-          margin-left: 15px;
-          color: #ffffff;
-          line-height: 50px;
-          cursor: pointer;
-        }
+      .send {
+        background-color: #38AEF0;
+        width: 100px;
+        padding: 0 30px;
+        margin-left: 15px;
+        color: #ffffff;
+        line-height: 50px;
+        border-style: none;
+        cursor: pointer;
       }
-    }
+    } 
   }
 }
