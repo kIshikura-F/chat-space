@@ -78,6 +78,10 @@
         font-size: 12px;
         display: block;
         clear: both;
+        display: flex;
+        .chat-hedder__member__name{
+          margin: 0 3px;
+        }
       }
       &__edit {
         height: 40px;
@@ -96,25 +100,28 @@
       height: calc(100vh - 282px);
       background-color: #fafafa;
       padding: 46px 40px;
-      .chat-message__user {
-        display: flex;
-        &__name {
-          color: #434a54;
-          font-weight: bold;
-          font-size: 16px;
-          margin-bottom: 10px;
-        }
-        &__date {
-          color: #999999;
-          font-size: 12px;
-          margin-left: 10px;
-        }
-      }
-      .chat-message__text {
-        color: #434a54;
-        font-size: 14px;
-        display: block;
+      overflow: scroll; 
+      .chat-message {
         margin-bottom: 40px;
+        .chat-message__user {
+          display: flex;
+          &__name {
+            color: #434a54;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+          }
+          &__date {
+            color: #999999;
+            font-size: 12px;
+            margin-left: 10px;
+          }
+        }
+        .chat-message__text {
+          color: #434a54;
+          font-size: 14px;
+          display: block;
+        }
       }
     }
     .chat-form {

@@ -1,10 +1,11 @@
-.chat-message__user
-  %p.chat-message__user__name
-    = post.user.name
-  %p.chat-message__user__date
-    = post.created_at.strftime("%Y/%m/%d %H:%M")
-%a.chat-message__text
-  - if post.content.present?
-    %p.chat-message__content
-      = post.content
-  = image_tag post.image.url, class: 'chat-message__image' if post.image.present?
+.chat-message
+  .chat-message__user
+    %p.chat-message__user__name
+      = post.user.name
+    %p.chat-message__user__date
+      = post.created_at.strftime("%Y/%m/%d %H:%M")
+  .chat-message__text
+    - if post.content.present?
+      %p.chat-message__content
+        = post.content
+    = image_tag post.image.url, id: 'chat-message__image' if post.image.present?

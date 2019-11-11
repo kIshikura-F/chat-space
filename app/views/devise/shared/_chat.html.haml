@@ -4,10 +4,13 @@
       =link_to edit_group_path(@group), class: "chat-hedder__edit__link" do
         Edit
     .chat-hedder__title
-      
+      %p= @group.name
     .chat-hedder__member
-      Menber : seo neko
-    
+      Menber :
+      - @group.users.each do |menber| 
+        .chat-hedder__member__name
+          %p= menber.name
+
   .chat-messages
     = render @posts
     
