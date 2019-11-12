@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function(){
 
   var search_list = $("#user-search-result");
-  var member_list = $("#member-append");
+  
   function appendUser(user){
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user.name}</p>
@@ -16,6 +16,19 @@ $(document).on('turbolinks:load', function(){
                 </div>`;
     search_list.append(html);
   }
+  
+  function addDeleteUser(name, id) {
+    var html = `<div class="chat-group-user clearfix" id="${id}">
+                  <p class="chat-group-user__name">${name}</p>
+                  <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
+                </div>`
+    $(".js-add-user").append(html);
+  }
+
+  function addMember(userId) {
+    let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
+    $(`#${userId}`).append(html);
+  }
 
   $("#user-search-field").on("keyup", function(){
     var input = $("#user-search-field").val();
@@ -27,12 +40,12 @@ $(document).on('turbolinks:load', function(){
     })
     
     .done(function(users){
-      if (input.length === 0) {         // フォームの文字列長さが0であれば、インクリメンタルサーチ結果を表示しないようにする
+      if (input.length === 0) {         
         $('#user-search-result').empty();
       }
-      else if (users.length !== 0){     // 値が等しくないもしくは型が等しくなければtrueを返す。
+      else if (users.length !== 0){     
         $('#user-search-result').empty();
-          users.forEach(function(user){ // users情報をひとつずつとりだしてuserに代入
+          users.forEach(function(user){ 
             appendUser(user)
         });
       }
@@ -46,6 +59,21 @@ $(document).on('turbolinks:load', function(){
     })
   })
   $(document).on("click", ".chat-group-user__btn--add", function() {
-    
+    const userName = $(this).attr("data-user-name");
+    const userId = $(this).attr("data-user-id");
+    $(this)
+      .parent()
+      .remove();
+      addDeleteUser(userName, userId);
+      addMember(userId);
+  });
+  
+  $(document).on("click", ".chat-group-user__btn--remove", function() {
+    $(this)
+      .parent()
+      .remove();
   });
 })
+
+// グループ編集でおなじゆーざーが複数追加されてしまう
+// 追加したユーザを検索結果から除外する
