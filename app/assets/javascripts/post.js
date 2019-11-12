@@ -63,7 +63,7 @@ $(document).on('turbolinks:load', function(){
       .done(function (posts) { 
         var insertHTML = '';
         posts.forEach(function (post) {
-          insertHTML = buildHTML(post);
+          insertHTML = buildPost(post);
           $('.chat-messages').append(insertHTML);
         })
         $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight}, 'fast');
