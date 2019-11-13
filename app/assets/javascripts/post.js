@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function(){
   function buildPost(post) {
     var content = post.content ? `${ post.content }` : "";
     var img = post.image.url ? `<img src= "${ post.image.url }" id="chat-message__image">` : "";
-    var html = `<div class="chat-message" data-id="${post.id}">
+    var html = `<div class="chat-message" data-post-id="${post.id}">
                   <div class="chat-message__user">
                     <p class="chat-message__user__name">
                       ${post.name}
@@ -52,25 +52,25 @@ $(document).on('turbolinks:load', function(){
   //自動更新
   var reloadPosts = function () {
     if (window.location.href.match(/\/groups\/\d+\/posts/)){
-      var last_post_id = $('.post:last').data("post-id"); 
-
+      var last_post_id = $('.chat-message:last').data("post-id"); 
       $.ajax({ 
         url: "api/posts",
         type: 'GET',
         dataType: 'json',
-        data: {last_id: last_post_id}
+        data: {id: last_post_id}
       })
       .done(function (posts) { 
         var insertHTML = '';
         posts.forEach(function (post) {
           insertHTML = buildPost(post);
           $('.chat-messages').append(insertHTML);
+          $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight},'fast');
         })
-        $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight}, 'fast');
       })
       .fail(function () {
         alert('自動更新に失敗しました');
       });
     }
-  };
-})
+  }
+  setInterval(reloadPosts, 5000);
+});
