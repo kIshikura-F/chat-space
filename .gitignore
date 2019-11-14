@@ -18,3 +18,5 @@
 
 # Ignore test image
 /public/uploads/post/image/
+
+config/secrets.yml
