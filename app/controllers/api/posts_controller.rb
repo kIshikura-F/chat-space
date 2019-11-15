@@ -1,4 +1,4 @@
-class Api::MessagesController < ApplicationController
+class Api::PostsController < ApplicationController
   def index
     group = Group.find(params[:group_id])
     last_post_id = params[:id].to_i
