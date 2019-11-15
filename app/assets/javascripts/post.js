@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(function(){
 
   function buildPost(post) {
     var content = post.content ? `${ post.content }` : "";
